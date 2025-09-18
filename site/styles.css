@@ -1,215 +1,294 @@
-/* Загальні стилі */
+/* Загальні базові налаштування */
+:root {
+  --xmas-red: #D7263D;
+  --xmas-green: #12806A;
+  --xmas-gold: #F4D35E;
+  --xmas-blue: #2E4057;
+  --xmas-bg: #f5f8fa;
+  --body-text: #222;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(135deg, #ffecd2, #fcb69f);
-    color: #333;
-    overflow-x: hidden;
+  background: var(--xmas-bg);
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  color: var(--body-text);
+  min-height: 100vh;
+  padding-bottom: 40px;
 }
 
-/* Шапка */
-header {
-    text-align: center;
-    padding: 30px;
-    background: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(5px);
-}
-
-h1 {
-    color: #b30000;
-    font-size: 42px;
-    font-weight: 700;
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
-}
-
-/* Основний текст */
-main {
-    max-width: 900px;
-    margin: auto;
-    padding: 20px;
-}
-
-p {
-    font-weight: 400;
-    line-height: 1.6;
-    font-size: 18px;
-}
-
-/* Кейси */
-.cases {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    margin-top: 30px;
-}
-
-.case {
-    background: rgba(255, 255, 255, 0.8);
-    border: 2px solid #ffcc66;
-    border-radius: 15px;
-    padding: 20px;
-    width: 300px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.case:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-}
-
-.case h2 {
-    text-align: center;
-    color: #b30000;
-    margin-bottom: 15px;
-}
-
-.case ul {
-    list-style: none;
-    padding: 0;
-}
-
-.case li {
-    font-size: 18px;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-/* Посилання */
 a {
-    color: #0056b3;
-    text-decoration: none;
-    transition: color 0.3s ease;
+  color: var(--xmas-red);
+  text-decoration: none;
+  transition: color 0.2s;
 }
-a:hover {
-    color: #ff6600;
+a:hover, a:focus {
+  color: var(--xmas-green);
 }
 
-/* Зображення */
-figure {
+img, .responsive-img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.site-header {
+  position: relative;
+  background: linear-gradient(135deg, #fceabb 0%, #f8b500 100%);
+  background-size: cover;
+  color: var(--body-text);
+  padding: 3rem 1rem 2.5rem 1rem;
+  box-shadow: 0 8px 32px 0 rgba(34, 64, 87, 0.08);
+  overflow: hidden;
+  border-bottom-left-radius: 3rem;
+  border-bottom-right-radius: 3rem;
+}
+.header-content {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  max-width: 1150px;
+  margin: 0 auto;
+}
+.header-image {
+  flex: 0 0 260px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header-text {
+  flex: 1 1 400px;
+  text-align: left;
+}
+.header-text h1 {
+  font-size: 3rem;
+  color: var(--xmas-red);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 0 4px 16px #fff5;
+  margin-bottom: 1rem;
+}
+.header-text p {
+  font-size: 1.3rem;
+  line-height: 1.7;
+  margin-bottom: 0.3rem;
+}
+
+@media (max-width: 900px) {
+  .header-content {
+    flex-direction: column;
+    gap: 1.7rem;
     text-align: center;
-    margin-top: 30px;
-}
-img {
-    max-width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  }
+  .header-text,
+  .header-image {
+    flex: 1 1 100%;
+  }
+  .header-image {
+    margin-bottom: 1rem;
+  }
 }
 
-/* Анімація при скролі */
-@keyframes fadeInScroll {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+.cases {
+  padding: 2.5rem 1.5rem 1rem 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.cases h2 {
+  font-size: 2.1rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--xmas-green);
+  margin-bottom: 2rem;
+}
+.case-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+.case {
+  background: #fff;
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  border-radius: 1.2rem;
+  box-shadow: 0 3px 16px 0 rgba(34, 64, 87, 0.10);
+  min-width: 210px;
+  max-width: 260px;
+  flex: 1 1 220px;
+  text-align: center;
+  transition: transform 0.25s, box-shadow 0.25s;
+  cursor: pointer;
+}
+.case:hover, .case:focus-within {
+  transform: scale(1.055) translateY(-7px);
+  box-shadow: 0 8px 32px 0 rgba(34, 64, 87, 0.18);
+}
+.case-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.7rem;
+  display: block;
+  color: var(--xmas-gold);
+  text-shadow: 0 1px 6px #ffe12c80;
+}
+.case h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+  color: var(--xmas-red);
+}
+.case p {
+  font-size: 1.01rem;
+  color: var(--body-text);
 }
 
-@scroll-timeline scrollAnim {
-    source: auto;
-    orientation: block;
+.about-holiday {
+  padding: 3rem 1.5rem;
+  background: linear-gradient(135deg, #f5f9fd 65%, #fffbe6 100%);
+  margin: 2rem auto;
+  border-radius: 2rem;
+  max-width: 850px;
+  box-shadow: 0 4px 18px 0 rgba(34, 64, 87, 0.07);
+}
+.about-holiday h2 {
+  font-size: 1.6rem;
+  color: var(--xmas-green);
+  font-weight: 700;
+  margin-bottom: 1.1rem;
+  text-align: center;
+}
+.about-holiday p {
+  font-size: 1.08rem;
+  line-height: 1.55;
+  color: var(--body-text);
+  margin-bottom: 1.4rem;
+  text-align: center;
+}
+.wiki-link {
+  padding: 0.6rem 1.6rem;
+  background: linear-gradient(90deg, var(--xmas-blue), var(--xmas-green));
+  border-radius: 2rem;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.03rem;
+  text-shadow: 0 1px 5px #0001;
+  display: inline-block;
+  margin: 0 auto;
+  transition: background 0.2s;
+}
+.wiki-link:hover, .wiki-link:focus {
+  background: linear-gradient(90deg, var(--xmas-green), var(--xmas-blue));
+  color: #F4D35E;
 }
 
-.scroll-animate {
-    animation: fadeInScroll 1s ease-out both;
-    animation-timeline: scrollAnim;
-    animation-range: entry 0% cover 30%;
+.site-footer {
+  margin-top: 3rem;
+  text-align: center;
+  background: linear-gradient(270deg, #f5f8fa 65%, #ffd40011 100%);
+  color: var(--xmas-blue);
+  padding: 1.7rem 1rem 1.9rem 1rem;
+  border-radius: 1.5rem 1.5rem 0 0;
+  box-shadow: 0 -3px 18px 0 rgba(34, 64, 87, 0.04);
+  font-size: 1.13rem;
 }
 
-/* Снігопад */
+@media (max-width: 600px) {
+  .cases .case-list {
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .cases {
+    padding: 1.35rem 0.5rem 0.8rem 0.5rem;
+  }
+  .about-holiday {
+    padding: 1.6rem 0.5rem;
+    margin: 1.1rem auto;
+  }
+  .site-header {
+    padding: 2.3rem 0.6rem 1.3rem 0.6rem;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+  }
+  .header-content {
+    gap: 0.6rem;
+  }
+  .site-footer {
+    padding: 1.1rem 0.35rem 1.3rem 0.35rem;
+    font-size: 1.01rem;
+  }
+}
+
+/* --- Снігопад CSS --- */
+.snowflakes {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  pointer-events: none;
+  height: 100vh;
+  z-index: 1000;
+  overflow: visible;
+}
 .snowflake {
-    position: fixed;
-    top: -10%;
-    z-index: 9999;
-    user-select: none;
-    pointer-events: none;
-    color: #fff;
-    font-size: 1.5em;
-    animation-name: snowflakes-fall, snowflakes-shake;
-    animation-duration: 10s, 3s;
-    animation-timing-function: linear, ease-in-out;
-    animation-iteration-count: infinite, infinite;
+  color: #fff;
+  font-size: 1.4em;
+  font-family: Arial, 'Montserrat', sans-serif;
+  text-shadow: 0 0 8px #F4D35E40, 0 2px 12px #64bccf40;
+  position: fixed;
+  top: -10%;
+  user-select: none;
+  cursor: default;
+  opacity: 0.9;
+  z-index: 1000;
+  animation-name: snowflakes-fall, snowflakes-shake;
+  animation-duration: 10s, 3s;
+  animation-timing-function: linear, ease-in-out;
+  animation-iteration-count: infinite, infinite;
 }
+.snowflake:nth-of-type(1) { left: 8%; animation-delay: 0s, 0s; font-size: 1.7em; }
+.snowflake:nth-of-type(2) { left: 20%; animation-delay: 1s, 1s; font-size: 1.3em; }
+.snowflake:nth-of-type(3) { left: 28%; animation-delay: 6s, .5s; font-size: 1.9em; }
+.snowflake:nth-of-type(4) { left: 37%; animation-delay: 4s, 2s; font-size: 1.17em; }
+.snowflake:nth-of-type(5) { left: 44%; animation-delay: 2s, 2s; font-size: 1.45em; }
+.snowflake:nth-of-type(6) { left: 53%; animation-delay: 8s, 3s; font-size: 1.15em; }
+.snowflake:nth-of-type(7) { left: 65%; animation-delay: 6s, 2s; font-size: 1.23em; }
+.snowflake:nth-of-type(8) { left: 74%; animation-delay: 2.5s, 1s; font-size: 1.8em; }
+.snowflake:nth-of-type(9) { left: 83%; animation-delay: 1s, 0s; font-size: 1.2em; }
+.snowflake:nth-of-type(10) { left: 93%; animation-delay: 3s, 1.5s; font-size: 1.37em; }
 
 @keyframes snowflakes-fall {
-    0% { top: -10%; }
-    100% { top: 100%; }
+  0% { top: -10%; opacity: 0.95; }
+  60% { opacity: 0.75; }
+  100% { top: 100%; opacity: 0.15; }
 }
-
 @keyframes snowflakes-shake {
-    0%, 100% { transform: translateX(0); }
-    50% { transform: translateX(80px); }
+  0% { transform: translateX(0px); }
+  50% { transform: translateX(32px); }
+  100% { transform: translateX(0px); }
 }
 
-.snowflake:nth-of-type(1) { left: 10%; animation-delay: 0s, 0s; }
-.snowflake:nth-of-type(2) { left: 20%; animation-delay: 2s, 1s; }
-.snowflake:nth-of-type(3) { left: 30%; animation-delay: 4s, 2s; }
-.snowflake:nth-of-type(4) { left: 40%; animation-delay: 1s, 0.5s; }
-.snowflake:nth-of-type(5) { left: 50%; animation-delay: 3s, 1.5s; }
-.snowflake:nth-of-type(6) { left: 60%; animation-delay: 5s, 2s; }
-.snowflake:nth-of-type(7) { left: 70%; animation-delay: 0s, 1s; }
-.snowflake:nth-of-type(8) { left: 80%; animation-delay: 2.5s, 0.5s; }
-.snowflake:nth-of-type(9) { left: 90%; animation-delay: 1.5s, 1s; }
-.snowflake:nth-of-type(10) { left: 95%; animation-delay: 4s, 2s; }
-
-/* Адаптивність */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 32px;
+/* --- Плавна анімація появи при скролі (оновлені стандарти CSS Scroll-Driven Animations) --- */
+@supports (animation-timeline: view()) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(60px);
+    animation: fadeUp ease-out both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+    will-change: opacity, transform;
+  }
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(60px);
     }
-
-    h2 {
-        font-size: 24px;
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
-
-    p, li {
-        font-size: 16px;
-    }
-
-    .case {
-        width: 100%;
-        max-width: 90%;
-    }
-
-    .cases {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    img {
-        width: 100%;
-        max-width: 400px;
-    }
-}
-
-@media (max-width: 480px) {
-    header {
-        padding: 20px;
-    }
-
-    h1 {
-        font-size: 28px;
-    }
-
-    .case {
-        padding: 15px;
-    }
-
-    .case li {
-        font-size: 15px;
-    }
-
-    p {
-        font-size: 15px;
-    }
-
-    a {
-        font-size: 15px;
-    }
+  }
 }
