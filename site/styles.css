@@ -1,53 +1,61 @@
-/* Загальні базові налаштування */
-:root {
-  --xmas-red: #D7263D;
-  --xmas-green: #12806A;
-  --xmas-gold: #F4D35E;
-  --xmas-blue: #2E4057;
-  --xmas-bg: #f5f8fa;
-  --body-text: #222;
+/* Загальні базові налаштування */ 
+/*  ← коментар, він не виконується, а лише пояснює код */
+
+:root { /* :root = кореневий елемент документа (аналог <html>), тут зберігають змінні */
+  --xmas-red: #D7263D;   /* --xmas-red = назва змінної; #D7263D = червоний колір */
+  --xmas-green: #12806A; /* --xmas-green = зелений */
+  --xmas-gold: #F4D35E;  /* --xmas-gold = золотий */
+  --xmas-blue: #2E4057;  /* --xmas-blue = синій */
+  --xmas-bg: #f5f8fa;    /* --xmas-bg = колір фону */
+  --body-text: #222;     /* --body-text = колір тексту (темно-сірий) */
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+* { /* * = універсальний селектор, застосовується до всіх елементів */
+  box-sizing: border-box; /* box-sizing = як рахуються розміри; border-box = враховує padding і border */
+  margin: 0;              /* margin = зовнішній відступ; 0 = без відступів */
+  padding: 0;             /* padding = внутрішній відступ; 0 = без відступів */
 }
 
-body {
-  background: var(--xmas-bg);
-  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
-  color: var(--body-text);
-  min-height: 100vh;
-  padding-bottom: 40px;
+body { /* body = основний контейнер сторінки */
+  background: var(--xmas-bg); /* background = фон; var(--xmas-bg) = використати змінну */
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif; 
+  /* font-family = шрифт; спочатку Montserrat, якщо нема — Arial, далі Helvetica, далі будь-який sans-serif */
+  color: var(--body-text); /* колір тексту */
+  min-height: 100vh;       /* мінімальна висота = 100% висоти вікна */
+  padding-bottom: 40px;    /* відступ знизу */
 }
 
-a {
-  color: var(--xmas-red);
-  text-decoration: none;
-  transition: color 0.2s;
+
+a { /* a = усі гіперпосилання */
+  color: var(--xmas-red);       /* колір тексту = червоний */
+  text-decoration: none;        /* прибрати підкреслення */
+  transition: color 0.2s;       /* плавна зміна кольору за 0.2 секунди */
 }
-a:hover, a:focus {
-  color: var(--xmas-green);
+
+a:hover, a:focus { /* коли наводиш мишкою або фокусуєшся */
+  color: var(--xmas-green); /* змінюється колір на зелений */
 }
+
 
 img, .responsive-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+  max-width: 100%; /* ширина не більше контейнера */
+  height: auto;    /* висота автоматично */
+  display: block;  /* блочний елемент */
 }
 
-.site-header {
-  position: relative;
-  background: linear-gradient(135deg, #fceabb 0%, #f8b500 100%);
-  background-size: cover;
-  color: var(--body-text);
-  padding: 3rem 1rem 2.5rem 1rem;
-  box-shadow: 0 8px 32px 0 rgba(34, 64, 87, 0.08);
-  overflow: hidden;
-  border-bottom-left-radius: 3rem;
-  border-bottom-right-radius: 3rem;
+.site-header { /* .site-header = елемент із класом site-header */
+  position: relative; /* позиціонування відносне */
+  background: linear-gradient(135deg, #fceabb 0%, #f8b500 100%); 
+  /* background = фон; linear-gradient = градієнт; 135deg = кут; кольори від #fceabb до #f8b500 */
+  background-size: cover; /* розтягнути фон */
+  color: var(--body-text); /* колір тексту */
+  padding: 3rem 1rem 2.5rem 1rem; /* внутрішні відступи: верх 3rem, праворуч 1rem, низ 2.5rem, ліворуч 1rem */
+  box-shadow: 0 8px 32px 0 rgba(34, 64, 87, 0.08); /* тінь */
+  overflow: hidden; /* приховати зайве */
+  border-bottom-left-radius: 3rem; /* заокруглення знизу зліва */
+  border-bottom-right-radius: 3rem; /* заокруглення знизу справа */
 }
+
 .header-content {
   display: flex;
   gap: 3rem;
